@@ -1,5 +1,6 @@
 package threadsforkjoin;
 
+import java.io.IOException;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
@@ -25,6 +26,12 @@ public class MatrixMultiplier {
         forkJoinPool.invoke(mainTask);
 
         System.out.println("Terminated!");
+        
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void printResult() { 
